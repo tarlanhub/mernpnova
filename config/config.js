@@ -2,7 +2,7 @@
 module.exports = {
   IS_PROD: process.env.NODE_ENV === 'production',
   NODE_ENV: process.env.NODE_ENV,
-  PORT: "5000",
+  PORT: "",
   HOST: "localhost",
   DB_USERNAME: "tarlan",
   DB_PASSWORD: "tarlan98",
