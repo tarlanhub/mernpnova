@@ -40,10 +40,7 @@ export class HomePage extends Component {
 
     return (
       <>
-      <div class="header">
-      
-      <h1 class="header__title">Come code with us.</h1>
-     </div>
+    
      
     
 
