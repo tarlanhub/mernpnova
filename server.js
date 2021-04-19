@@ -9,17 +9,18 @@ const path = require("path");
 const helmet = require('helmet');
 const cors = require('cors');
 
+
+const PORT = process.env.PORT || 8080
 if (process.env.NODE_ENV === 'production') {
   //set static folder
   app.use(express.static('client/build'));
 }
-app.use('*', express.static(path.join(__dirname, "client", "build")))
+
 
 
 // Constants
 const {
   HOST,
-  PORT,
   SESS_SECRET,
   NODE_ENV,
   IS_PROD,
@@ -77,7 +78,7 @@ router.get("/", (req, res) => res.send("HELLO FRIEND"));
 
 // API / Routes;
 // Uncomment Below for Development
-app.use("/api/users", require("./routes/users"));
+//app.use("/api/users", require("./routes/users"));
 
 //Uncomment Below for Production, routes mounted at /sessions-auth-app and not root domain
 app.use("/sessions-auth-app/api/users", require("./routes/users"));
