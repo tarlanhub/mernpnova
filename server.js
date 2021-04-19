@@ -9,19 +9,13 @@ const path = require("path");
 const helmet = require('helmet');
 const cors = require('cors');
 
-
-var distDir = __dirname + "/dist/";
-app.use(express.static(distDir));
-
-// Server static assets if in production
-if(process.env.NODE_ENV === 'production') {
-    // set static folder
-    app.use(express.static('client/build'))
-
-    app.get('*', (req,res) => {
-        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-    } )
+if (process.env.NODE_ENV === 'production') {
+  //set static folder
+  app.use(express.static('client/build'));
 }
+app.use('*', express.static(path.join(__dirname, "client", "build")))
+
+
 // Constants
 const {
   HOST,
